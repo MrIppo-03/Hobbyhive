@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HobbyHive - Discover Your Lifelong Passion & Communities</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom Fonts & CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- NAVIGATION BAR -->
+  <nav class="sticky top-0 z-40 glass-panel border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-3 group">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 via-violet-600 to-pink-500 flex items-center justify-center text-white shadow-md shadow-indigo-300 group-hover:scale-105 transition-transform">
+            <span class="text-xl">✨</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">Hobby<span class="text-indigo-600">Hive</span></span>
+            <span class="text-[10px] text-slate-600 tracking-wider font-semibold uppercase -mt-1">Discovery & Community</span>
+          </div>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center space-x-1 lg:space-x-3">
+          <a href="index.html" class="text-sm font-semibold text-indigo-600 px-3 py-2 rounded-xl bg-indigo-50/80">Home</a>
+          <a href="quiz.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100/70 px-3 py-2 rounded-xl transition-colors">15-Q Discovery Quiz</a>
+          <a href="communities.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100/70 px-3 py-2 rounded-xl transition-colors">Community Hub</a>
+          <a href="community-feed.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100/70 px-3 py-2 rounded-xl transition-colors">Discussions</a>
+          <a href="profile.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600 hover:bg-slate-100/70 px-3 py-2 rounded-xl transition-colors">Dashboard</a>
+        </div>
+
+        <!-- Dynamic User Auth Area -->
+        <div id="nav-user-area" class="flex items-center space-x-3">
+          <a href="login.html" class="text-sm font-medium text-slate-700 hover:text-indigo-600 px-3 py-1.5 rounded-lg transition-colors">Log In</a>
+          <a href="login.html#signup" class="text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-1.5 rounded-xl shadow-sm transition-all">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <main class="flex-1">
+    <section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28">
+      <!-- Background Ambient Glow -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-indigo-300/30 via-pink-200/30 to-purple-300/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Floating Pill Badge -->
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs sm:text-sm font-semibold mb-6 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-indigo-500 animate-ping"></span>
+          <span>15 Questions • Instant Hobby Allotment • Global Communities</span>
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15] max-w-4xl mx-auto">
+          Tired of Endless Scrolling? <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-violet-600 to-pink-500">Discover Your True Hobby</span> & Connect With Your Tribe.
+        </h1>
+
+        <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          Answer 15 simple, intuitive questions about your energy, budget, and curiosity. We'll allot your ideal hobby match and plug you directly into active <strong>Reddit</strong>, <strong>Discord</strong>, and <strong>local Meetup</strong> communities.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="quiz.html" class="w-full sm:w-auto inline-flex items-center justify-center space-x-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold text-base shadow-lg shadow-indigo-200 hover:shadow-indigo-300 hover:-translate-y-0.5 transition-all">
+            <span>Take 15-Question Quiz</span>
+            <span class="text-xl">🚀</span>
+          </a>
+          <a href="communities.html" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-7 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-base border border-slate-200 shadow-sm hover:border-slate-300 transition-all">
+            <span>Explore 16+ Hobbies & Communities</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <!-- Quick Trust Indicators -->
+        <div class="mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm text-slate-500 font-medium">
+          <div class="flex items-center space-x-2">
+            <span class="text-emerald-500 font-bold">✓</span>
+            <span>100% Free & No Spam</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-indigo-500 font-bold">✓</span>
+            <span>Verified Discord & Reddit Hubs</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-pink-500 font-bold">✓</span>
+            <span>Day-1 Starter Roadmaps Included</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 STEP PROCESS SECTION -->
+    <section class="py-16 bg-white/70 border-y border-slate-200/60">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <h2 class="font-display text-3xl font-extrabold text-slate-900">How HobbyHive Works</h2>
+          <p class="mt-2 text-slate-600 text-base">From zero idea to building projects with passionate people in under 5 minutes.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Step 1 -->
+          <div class="glass-card p-6 rounded-3xl relative overflow-hidden">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-xl font-bold mb-4 shadow-sm">
+              1
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Answer 15 Simple Qs</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              No boring psychological tests. Just 15 punchy questions on your physical movement, budget, screen tolerance, and sensory likes.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass-card p-6 rounded-3xl relative overflow-hidden border-indigo-200/80">
+            <div class="w-12 h-12 rounded-2xl bg-violet-100 text-violet-700 flex items-center justify-center text-xl font-bold mb-4 shadow-sm">
+              2
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Smart Hobby Allotment</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Our multi-weight algorithm computes your Archetype and allots your #1 best fit plus 3 runner-up alternatives with 90%+ match accuracy.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass-card p-6 rounded-3xl relative overflow-hidden">
+            <div class="w-12 h-12 rounded-2xl bg-pink-100 text-pink-700 flex items-center justify-center text-xl font-bold mb-4 shadow-sm">
+              3
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Plug Into Communities</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Instant direct links to active Discord voice rooms, r/subreddits with millions of members, YouTube mentors, and local meetup clubs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED HOBBIES PREVIEW GRID -->
+    <section class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+        <div>
+          <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">Diverse Catalog</span>
+          <h2 class="font-display text-3xl font-extrabold text-slate-900 mt-1">Curated Hobbies Ready to Explore</h2>
+        </div>
+        <a href="communities.html" class="mt-3 sm:mt-0 text-sm font-semibold text-indigo-600 hover:text-indigo-700 flex items-center space-x-1">
+          <span>View all 16 hobbies & communities</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="featured-hobbies-grid">
+        <!-- Rendered dynamically by script below -->
+      </div>
+    </section>
+
+    <!-- LIVE IN-APP COMMUNITY DISCUSSIONS TEASER -->
+    <section class="py-16 bg-gradient-to-b from-indigo-900 via-slate-900 to-slate-950 text-white relative overflow-hidden">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <span class="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-semibold border border-indigo-400/30">Active Engagement Hub</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold mt-3">Share Your First Milestone With Fellow Hobbyists</h2>
+          <p class="mt-3 text-slate-300 text-base">
+            Don't learn in isolation! Post your first photo, sourdough loaf, or chess win on our community board or connect via dedicated Discord servers.
+          </p>
+        </div>
+
+        <div class="glass-panel bg-white/10 border-white/15 p-6 sm:p-8 rounded-3xl max-w-4xl mx-auto">
+          <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+            <div class="flex items-center space-x-3">
+              <span class="text-2xl">🔥</span>
+              <h3 class="font-bold text-lg text-white">Trending Discussions Right Now</h3>
+            </div>
+            <a href="community-feed.html" class="text-xs sm:text-sm font-semibold text-indigo-300 hover:text-white transition-colors">Open Community Feed →</a>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Sample Post 1 -->
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+              <div class="flex items-center justify-between text-xs text-indigo-200 mb-1.5">
+                <span class="flex items-center space-x-2">
+                  <span>📷</span>
+                  <strong class="text-white">Maya Patel</strong>
+                  <span class="text-slate-400">• Street Photography</span>
+                </span>
+                <span class="text-slate-400">2 hours ago</span>
+              </div>
+              <h4 class="font-bold text-white text-base">"Caught golden hour reflections on MG Road after a sudden rain shower!"</h4>
+              <p class="text-slate-300 text-sm mt-1 line-clamp-2">Used regular phone on pro mode. Learning the rule of thirds has completely changed how I look at ordinary streets!</p>
+              <div class="mt-3 flex items-center space-x-4 text-xs text-slate-400">
+                <span class="text-pink-400">❤️ 34 likes</span>
+                <span>💬 2 comments</span>
+                <a href="https://www.reddit.com/r/mobilephotography/" target="_blank" class="text-indigo-300 hover:underline">r/mobilephotography ↗</a>
+              </div>
+            </div>
+
+            <!-- Sample Post 2 -->
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+              <div class="flex items-center justify-between text-xs text-indigo-200 mb-1.5">
+                <span class="flex items-center space-x-2">
+                  <span>♟️</span>
+                  <strong class="text-white">Rohan Deshmukh</strong>
+                  <span class="text-slate-400">• Chess</span>
+                </span>
+                <span class="text-slate-400">6 hours ago</span>
+              </div>
+              <h4 class="font-bold text-white text-base">"Crossed 1000 Rapid on Lichess after 3 weeks of daily puzzles!"</h4>
+              <p class="text-slate-300 text-sm mt-1 line-clamp-2">Never thought a 64-square game could be so thrilling. Daniel Naroditsky's speedruns were game changing!</p>
+              <div class="mt-3 flex items-center space-x-4 text-xs text-slate-400">
+                <span class="text-pink-400">❤️ 89 likes</span>
+                <span>💬 4 comments</span>
+                <a href="https://discord.gg/chesscom" target="_blank" class="text-indigo-300 hover:underline">Chess Discord ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 text-center">
+            <a href="community-feed.html" class="inline-flex items-center space-x-2 px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition-colors">
+              <span>Join Discussions & Post Your Progress</span>
+              <span>💬</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display text-3xl font-extrabold text-slate-900 text-center mb-8">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <details class="glass-card p-5 rounded-2xl group cursor-pointer">
+          <summary class="font-bold text-slate-800 text-base list-none flex justify-between items-center">
+            <span>How does the 15-question quiz allot my hobby?</span>
+            <span class="text-indigo-600 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+            Each question evaluates specific dimensions: indoor vs outdoor, budget limits, tactile vs digital tools, time commitments, and mental stimulation. Our weighted algorithm matches your answers against 16+ deeply mapped hobby profiles to find your #1 archetype and runner-up options.
+          </p>
+        </details>
+
+        <details class="glass-card p-5 rounded-2xl group cursor-pointer">
+          <summary class="font-bold text-slate-800 text-base list-none flex justify-between items-center">
+            <span>Are the community links active and safe to join?</span>
+            <span class="text-indigo-600 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+            Yes! Every hobby is linked to major verified subreddits (e.g. r/photography, r/gardening, r/chess), established Discord servers with active moderators, official platforms like Lichess and Unsplash, and local Meetup.com search directories.
+          </p>
+        </details>
+
+        <details class="glass-card p-5 rounded-2xl group cursor-pointer">
+          <summary class="font-bold text-slate-800 text-base list-none flex justify-between items-center">
+            <span>Do I need to pay or buy expensive gear?</span>
+            <span class="text-indigo-600 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p class="mt-3 text-slate-600 text-sm leading-relaxed">
+            Absolutely not. Over 70% of the hobbies in our catalog (like Mobile Photography, Chess, Creative Writing, Calisthenics, and Web Coding) can be started today for ₹0 using everyday items or your current phone.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-slate-200/80 py-10 mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center text-white text-base">✨</div>
+        <span class="font-display font-extrabold text-slate-900">HobbyHive</span>
+        <span class="text-xs text-slate-600">• Find your passion, connect with tribes</span>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-6 text-sm text-slate-600 font-medium">
+        <a href="quiz.html" class="hover:text-indigo-600">Quiz</a>
+        <a href="communities.html" class="hover:text-indigo-600">Community Directory</a>
+        <a href="community-feed.html" class="hover:text-indigo-600">Discussions</a>
+        <a href="login.html" class="hover:text-indigo-600">Login</a>
+        <a href="profile.html" class="hover:text-indigo-600">Profile</a>
+      </div>
+
+      <p class="text-xs text-slate-600">
+        Built for joyful learning & engagement • 2026
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/communities-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Populate Featured Hobbies Preview
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('featured-hobbies-grid');
+      if (!grid || typeof HOBBIES_CATALOG === 'undefined') return;
+
+      const previewKeys = ['photo', 'gardening', 'chess', 'bouldering', 'cooking', 'tech'];
+      
+      grid.innerHTML = previewKeys.map(key => {
+        const h = HOBBIES_CATALOG[key];
+        if (!h) return '';
+        const redditCount = h.communities?.reddit?.[0]?.members || '1M+';
+        const redditName = h.communities?.reddit?.[0]?.name || 'r/community';
+
+        return `
+          <div class="glass-card p-6 rounded-3xl flex flex-col justify-between group">
+            <div>
+              <div class="flex items-start justify-between mb-4">
+                <span class="text-4xl p-2.5 rounded-2xl bg-slate-50 border border-slate-100 shadow-sm">${h.emoji}</span>
+                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100">${h.category}</span>
+              </div>
+              <h3 class="font-bold text-lg text-slate-900 group-hover:text-indigo-600 transition-colors">${h.name}</h3>
+              <p class="text-xs text-indigo-600 font-semibold mb-2">${h.archetype}</p>
+              <p class="text-slate-600 text-sm line-clamp-2 leading-relaxed mb-4">${h.tagline}</p>
+            </div>
+            
+            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+              <span class="font-medium text-slate-700">💬 ${redditName} (${redditCount})</span>
+              <a href="communities.html?hobby=${h.id}" class="text-indigo-600 font-semibold hover:underline">View Hub →</a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    });
+  </script>
+</body>
+</html>
+html code
+
+                                                           <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Sign Up - HobbyHive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Minimal Nav -->
+  <header class="py-4 px-6 border-b border-slate-200/80 glass-panel">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-md">✨</div>
+        <span class="font-display font-extrabold text-xl text-slate-900">Hobby<span class="text-indigo-600">Hive</span></span>
+      </a>
+      <a href="quiz.html" class="text-sm font-semibold text-slate-600 hover:text-indigo-600">Skip to Quiz →</a>
+    </div>
+  </header>
+
+  <main class="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+    <div class="w-full max-w-md">
+      <!-- Card Container -->
+      <div class="glass-panel p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-200/90 relative">
+        
+        <!-- Header -->
+        <div class="text-center mb-6">
+          <div class="inline-flex w-14 h-14 rounded-3xl bg-indigo-50 text-indigo-600 items-center justify-center text-2xl mb-3 shadow-inner">
+            👋
+          </div>
+          <h1 id="auth-title" class="font-display text-2xl font-black text-slate-900">Welcome to HobbyHive</h1>
+          <p id="auth-subtitle" class="text-xs sm:text-sm text-slate-500 mt-1">Discover hobbies, track progress, and join passionate tribes.</p>
+        </div>
+
+        <!-- 1-Click Fast Access Buttons -->
+        <div class="space-y-2 mb-6">
+          <button id="btn-demo-login" type="button" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-semibold text-sm shadow-md shadow-indigo-200 flex items-center justify-center space-x-2 transition-all">
+            <span>⚡ One-Click Demo Account (Aarav)</span>
+          </button>
+          <button id="btn-guest-login" type="button" class="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm border border-slate-200 shadow-sm flex items-center justify-center space-x-2 transition-all">
+            <span>🧭 Continue as Guest Explorer</span>
+          </button>
+        </div>
+
+        <div class="relative flex items-center justify-center mb-6">
+          <div class="border-t border-slate-200 w-full"></div>
+          <span class="bg-white px-3 text-xs uppercase tracking-wider font-bold text-slate-600 absolute">or with email</span>
+        </div>
+
+        <!-- Tabs: Login vs Register -->
+        <div class="flex p-1 bg-slate-100 rounded-2xl mb-6">
+          <button id="tab-login" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold text-indigo-700 bg-white shadow-sm transition-all">
+            Log In
+          </button>
+          <button id="tab-register" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 transition-all">
+            Create Account
+          </button>
+        </div>
+
+        <!-- Error / Info Alert -->
+        <div id="auth-alert" class="hidden mb-4 p-3 rounded-xl text-xs font-semibold"></div>
+
+        <!-- LOGIN FORM -->
+        <form id="form-login" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Email Address</label>
+            <input type="email" id="login-email" required placeholder="you@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all">
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label class="text-xs font-bold text-slate-700 uppercase tracking-wider">Password</label>
+              <a href="#" onclick="alert('For demo, use demo account or any password!')" class="text-xs text-indigo-600 hover:underline">Forgot?</a>
+            </div>
+            <input type="password" id="login-password" required placeholder="••••••••" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all">
+          </div>
+
+          <button type="submit" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md transition-all">
+            Sign In to Dashboard
+          </button>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="form-register" class="space-y-4 hidden">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Your Full Name</label>
+            <input type="text" id="reg-name" required placeholder="e.g. Parth Sharma" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Email Address</label>
+            <input type="email" id="reg-email" required placeholder="parth@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Create Password</label>
+            <input type="password" id="reg-password" required placeholder="At least 6 characters" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all">
+          </div>
+
+          <!-- Avatar Picker -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wider">Choose Profile Avatar</label>
+            <div class="flex flex-wrap gap-2" id="avatar-selector">
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border-2 border-indigo-500 bg-indigo-50 flex items-center justify-center" data-avatar="🎨">🎨</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="📷">📷</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="🧗">🧗</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="♟️">♟️</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="🪴">🪴</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="🎧">🎧</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="🍳">🍳</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="💻">💻</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="☕">☕</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="🔭">🔭</button>
+            </div>
+            <input type="hidden" id="reg-avatar" value="🎨">
+          </div>
+
+          <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold text-sm shadow-md transition-all">
+            Create Free Account
+          </button>
+        </form>
+
+        <!-- Terms Footer -->
+        <p class="text-center text-[11px] text-slate-600 mt-6">
+          By signing up, you gain instant access to 16+ verified hobby community links and personalized discovery roadmaps.
+        </p>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Tab switching logic
+    const tabLogin = document.getElementById('tab-login');
+    const tabRegister = document.getElementById('tab-register');
+    const formLogin = document.getElementById('form-login');
+    const formRegister = document.getElementById('form-register');
+    const authAlert = document.getElementById('auth-alert');
+    const authTitle = document.getElementById('auth-title');
+
+    function showAlert(msg, isError = true) {
+      authAlert.textContent = msg;
+      authAlert.className = isError 
+        ? 'mb-4 p-3 rounded-xl text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200'
+        : 'mb-4 p-3 rounded-xl text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200';
+      authAlert.classList.remove('hidden');
+    }
+
+    function hideAlert() {
+      authAlert.classList.add('hidden');
+    }
+
+    function showLoginTab() {
+      tabLogin.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold text-indigo-700 bg-white shadow-sm transition-all";
+      tabRegister.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 transition-all";
+      formLogin.classList.remove('hidden');
+      formRegister.classList.add('hidden');
+      authTitle.textContent = "Welcome Back";
+      hideAlert();
+    }
+
+    function showRegisterTab() {
+      tabRegister.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold text-indigo-700 bg-white shadow-sm transition-all";
+      tabLogin.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 transition-all";
+      formRegister.classList.remove('hidden');
+      formLogin.classList.add('hidden');
+      authTitle.textContent = "Create Your Account";
+      hideAlert();
+    }
+
+    tabLogin.addEventListener('click', showLoginTab);
+    tabRegister.addEventListener('click', showRegisterTab);
+
+    if (window.location.hash === '#signup') {
+      showRegisterTab();
+    }
+
+    // Avatar Selection
+    let selectedAvatar = "🎨";
+    document.querySelectorAll('.avatar-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.avatar-opt').forEach(b => {
+          b.className = "avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center";
+        });
+        btn.className = "avatar-opt text-xl w-9 h-9 rounded-xl border-2 border-indigo-500 bg-indigo-50 flex items-center justify-center";
+        selectedAvatar = btn.getAttribute('data-avatar');
+        document.getElementById('reg-avatar').value = selectedAvatar;
+      });
+    });
+
+    // 1-Click Demo Login
+    document.getElementById('btn-demo-login').addEventListener('click', () => {
+      HobbyApp.playSound('click');
+      const res = HobbyAuth.loginDemoUser();
+      if (res.success) {
+        HobbyApp.toast('Logged in as Demo User (Aarav)!', 'success');
+        setTimeout(() => {
+          window.location.href = 'profile.html';
+        }, 600);
+      }
+    });
+
+    // 1-Click Guest Login
+    document.getElementById('btn-guest-login').addEventListener('click', () => {
+      HobbyApp.playSound('click');
+      const res = HobbyAuth.loginAsGuest();
+      if (res.success) {
+        HobbyApp.toast('Welcome, Guest Explorer!', 'info');
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 600);
+      }
+    });
+
+    // Login Form Submit
+    formLogin.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const pass = document.getElementById('login-password').value;
+
+      const res = HobbyAuth.login(email, pass);
+      if (res.success) {
+        HobbyApp.playSound('success');
+        showAlert("Success! Redirecting...", false);
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 700);
+      } else {
+        HobbyApp.playSound('pop');
+        showAlert(res.message, true);
+      }
+    });
+
+    // Register Form Submit
+    formRegister.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const pass = document.getElementById('reg-password').value;
+      const avatar = document.getElementById('reg-avatar').value;
+
+      const res = HobbyAuth.register(name, email, pass, avatar);
+      if (res.success) {
+        HobbyApp.playSound('success');
+        HobbyApp.launchConfetti();
+        showAlert("Account created! Let's discover your hobby...", false);
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 1000);
+      } else {
+        HobbyApp.playSound('pop');
+        showAlert(res.message, true);
+      }
+    });
+  </script>
+</body>
+</html>
+login code
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile – HobbyHive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 glass-panel border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center text-white shadow-md">✨</div>
+          <span class="font-display font-extrabold text-xl text-slate-900">Hobby<span class="text-indigo-600">Hive</span></span>
+        </a>
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="quiz.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Quiz</a>
+          <a href="result.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Result</a>
+          <a href="communities.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">All Communities</a>
+        </div>
+        <div id="nav-user-area" class="flex items-center space-x-3"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="mb-8">
+      <p class="text-sm font-bold uppercase tracking-wider text-indigo-600 mb-2">Your HobbyHive dashboard</p>
+      <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2">My Profile</h1>
+      <p class="text-slate-600">Keep your hobby journey, quiz results, and favorite communities in one place.</p>
+    </header>
+    <div id="profile-content" aria-live="polite">
+      <div class="glass-card p-6 rounded-2xl border border-slate-200/60 text-sm text-slate-500">Loading your profile…</div>
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200/80 py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between text-slate-600 text-sm">
+      <span>© 2026 HobbyHive • All rights reserved</span>
+      <div class="flex space-x-4">
+        <a href="index.html" class="hover:text-indigo-600">Home</a>
+        <a href="login.html" class="hover:text-indigo-600">Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/communities-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
+profile code
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15-Question Hobby Discovery Quiz - HobbyHive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Sticky Navigation & Progress Header -->
+  <header class="sticky top-0 z-40 glass-panel border-b border-slate-200/80">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3">
+      <div class="flex items-center justify-between">
+        <a href="index.html" class="flex items-center space-x-2 text-slate-800 hover:text-indigo-600 transition-colors">
+          <span class="text-xl">←</span>
+          <span class="text-xs sm:text-sm font-bold">Exit Quiz</span>
+        </a>
+
+        <div class="flex items-center space-x-2">
+          <span id="quiz-step-indicator" class="text-xs sm:text-sm font-extrabold text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
+            Question 1 of 15
+          </span>
+          <span id="quiz-percentage-badge" class="text-xs font-bold text-slate-500">0%</span>
+        </div>
+
+        <div id="nav-user-area" class="flex items-center">
+          <!-- Populated by auth.js -->
+        </div>
+      </div>
+
+      <!-- Animated Progress Bar -->
+      <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden mt-3 shadow-inner">
+        <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-300 ease-out" style="width: 7%;"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN QUIZ CONTAINER -->
+  <main class="flex-1 flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 max-w-3xl mx-auto w-full">
+    
+    <!-- Question Card -->
+    <div class="w-full glass-panel p-6 sm:p-10 rounded-3xl shadow-xl border border-slate-200/90 relative overflow-hidden transition-all duration-300" id="question-card">
+      
+      <!-- Category Tag -->
+      <div class="flex items-center justify-between mb-4">
+        <span id="q-category-badge" class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-violet-100 text-violet-800 border border-violet-200">
+          🌿 Environment
+        </span>
+        <span class="text-xs font-semibold text-slate-600 uppercase tracking-widest" id="q-number-pill">Q1</span>
+      </div>
+
+      <!-- Question Title -->
+      <h2 id="q-title" class="font-display text-2xl sm:text-3xl font-black text-slate-900 leading-snug tracking-tight">
+        Loading question...
+      </h2>
+
+      <!-- Subtitle / Hinglish Hint -->
+      <p id="q-subtitle" class="text-sm sm:text-base text-slate-500 mt-2 italic font-medium">
+        ...
+      </p>
+
+      <!-- Options Container -->
+      <div id="options-container" class="mt-8 space-y-3 sm:space-y-4">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Bottom Nav Controls -->
+      <div class="mt-10 pt-6 border-t border-slate-200/70 flex items-center justify-between">
+        <button id="btn-prev" class="px-5 py-2.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white text-slate-700 font-bold text-xs sm:text-sm flex items-center space-x-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed">
+          <span>← Back</span>
+        </button>
+
+        <!-- Quick Dots / Stepper Navigation -->
+        <div class="hidden sm:flex items-center space-x-1.5" id="stepper-dots">
+          <!-- 15 dots rendered dynamically -->
+        </div>
+
+        <button id="btn-next" class="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-indigo-200 flex items-center space-x-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed">
+          <span>Next</span>
+          <span>→</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Quick Reminder -->
+    <div class="mt-6 text-center text-xs text-slate-600 flex items-center justify-center space-x-2">
+      <span>💡</span>
+      <span>Pick what genuinely excites you right now. You can change your answers anytime!</span>
+    </div>
+
+  </main>
+
+  <!-- CALCULATING MODAL (Shows when finishing Q15) -->
+  <div id="calculating-overlay" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="glass-panel max-w-md w-full p-8 rounded-3xl text-center shadow-2xl border border-white/20">
+      <div class="w-20 h-20 mx-auto rounded-3xl bg-indigo-100 flex items-center justify-center text-4xl mb-4 animate-bounce">
+        🔮
+      </div>
+      <h3 class="font-display text-2xl font-black text-slate-900 mb-2">Analyzing Your DNA Profile...</h3>
+      <p class="text-sm text-slate-600 mb-6" id="calc-status-text">Weighing creative intuition, budget fit & active communities...</p>
+      
+      <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden mb-4">
+        <div id="calc-progress" class="h-full bg-gradient-to-r from-indigo-500 to-pink-500 transition-all duration-700 w-0"></div>
+      </div>
+
+      <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest">Matching 16+ Verified Hobbies</span>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/quiz-data.js"></script>
+  <script src="js/communities-data.js"></script>
+  <script src="js/quiz-engine.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    // Initialize Quiz Engine
+    const engine = new HobbyQuizEngine(QUIZ_QUESTIONS, HOBBIES_CATALOG);
+
+    const qCard = document.getElementById('question-card');
+    const qTitle = document.getElementById('q-title');
+    const qSubtitle = document.getElementById('q-subtitle');
+    const qCategory = document.getElementById('q-category-badge');
+    const qNumberPill = document.getElementById('q-number-pill');
+    const optionsContainer = document.getElementById('options-container');
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    const stepIndicator = document.getElementById('quiz-step-indicator');
+    const percentageBadge = document.getElementById('quiz-percentage-badge');
+    const progressBar = document.getElementById('quiz-progress-bar');
+    const stepperDots = document.getElementById('stepper-dots');
+
+    // Create 15 Stepper Dots
+    function renderStepperDots() {
+      stepperDots.innerHTML = '';
+      for (let i = 0; i < engine.getTotalQuestions(); i++) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.title = `Jump to Question ${i + 1}`;
+        const isAnswered = engine.isAnswered(i + 1);
+        const isCurrent = engine.currentIndex === i;
+
+        dot.className = `w-2.5 h-2.5 rounded-full transition-all ${
+          isCurrent 
+            ? 'w-6 bg-indigo-600 shadow-sm' 
+            : isAnswered 
+              ? 'bg-emerald-500' 
+              : 'bg-slate-200 hover:bg-slate-300'
+        }`;
+
+        dot.addEventListener('click', () => {
+          engine.goTo(i);
+          renderCurrentQuestion();
+        });
+
+        stepperDots.appendChild(dot);
+      }
+    }
+
+    // Render Question
+    function renderCurrentQuestion() {
+      const q = engine.getCurrentQuestion();
+      const currentNum = engine.currentIndex + 1;
+      const total = engine.getTotalQuestions();
+      const progressPercent = Math.round(((currentNum - 1) / total) * 100);
+
+      // Header updates
+      stepIndicator.textContent = `Question ${currentNum} of ${total}`;
+      percentageBadge.textContent = `${progressPercent}%`;
+      progressBar.style.width = `${Math.max(7, progressPercent)}%`;
+
+      qCategory.textContent = `${q.badge} • ${q.category}`;
+      qNumberPill.textContent = `Q${currentNum}`;
+      qTitle.textContent = q.title;
+      qSubtitle.textContent = q.subtitle || "";
+
+      // Options
+      optionsContainer.innerHTML = '';
+      const selectedId = engine.getSelectedOptionId(q.id);
+
+      q.options.forEach(opt => {
+        const isSelected = selectedId === opt.id;
+        const optEl = document.createElement('div');
+        optEl.className = `option-card p-4 sm:p-5 rounded-2xl border-2 flex items-start space-x-4 ${
+          isSelected 
+            ? 'selected border-indigo-600 bg-indigo-50/70' 
+            : 'border-slate-200/90 bg-white hover:border-indigo-300'
+        }`;
+
+        optEl.innerHTML = `
+          <div class="text-3xl shrink-0 p-1.5 rounded-xl bg-slate-50 border border-slate-100 shadow-xs">${opt.emoji}</div>
+          <div class="flex-1">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-base sm:text-lg">${opt.text}</h4>
+              <span class="w-5 h-5 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
+                isSelected ? 'border-indigo-600 bg-indigo-600 text-white' : 'border-slate-300'
+              }">${isSelected ? '✓' : ''}</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">${opt.desc}</p>
+          </div>
+        `;
+
+        optEl.addEventListener('click', () => {
+          HobbyApp.playSound('click');
+          engine.selectOption(q.id, opt.id);
+          renderCurrentQuestion();
+
+          // Auto advance if not on the last question
+          if (engine.currentIndex < total - 1) {
+            setTimeout(() => {
+              engine.next();
+              renderCurrentQuestion();
+            }, 250);
+          } else {
+            // Last question answered! Check if complete
+            if (engine.isCompleted()) {
+              setTimeout(() => {
+                finishQuiz();
+              }, 400);
+            }
+          }
+        });
+
+        optionsContainer.appendChild(optEl);
+      });
+
+      // Navigation button states
+      btnPrev.disabled = engine.currentIndex === 0;
+      
+      const isLast = engine.currentIndex === total - 1;
+      if (isLast) {
+        btnNext.innerHTML = `<span>See My Hobby Match 🎉</span>`;
+        btnNext.className = "px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-200 flex items-center space-x-2 transition-all";
+      } else {
+        btnNext.innerHTML = `<span>Next</span><span>→</span>`;
+        btnNext.className = "px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-indigo-200 flex items-center space-x-2 transition-all";
+      }
+
+      btnNext.disabled = !engine.isAnswered(q.id);
+
+      renderStepperDots();
+    }
+
+    // Prev Button
+    btnPrev.addEventListener('click', () => {
+      HobbyApp.playSound('pop');
+      if (engine.prev()) {
+        renderCurrentQuestion();
+      }
+    });
+
+    // Next / Finish Button
+    btnNext.addEventListener('click', () => {
+      HobbyApp.playSound('click');
+      if (engine.currentIndex === engine.getTotalQuestions() - 1) {
+        finishQuiz();
+      } else {
+        if (engine.next()) {
+          renderCurrentQuestion();
+        }
+      }
+    });
+
+    // Finish Quiz & Transition to Allotment
+    function finishQuiz() {
+      const overlay = document.getElementById('calculating-overlay');
+      const calcProgress = document.getElementById('calc-progress');
+      const calcStatusText = document.getElementById('calc-status-text');
+
+      overlay.classList.remove('hidden');
+      HobbyApp.playSound('success');
+
+      setTimeout(() => {
+        calcProgress.style.width = '45%';
+        calcStatusText.textContent = "Analyzing focus modes, sensory appetite & weekend schedules...";
+      }, 400);
+
+      setTimeout(() => {
+        calcProgress.style.width = '85%';
+        calcStatusText.textContent = "Ranking top subreddits, Discord voice lounges & starter kits...";
+      }, 1000);
+
+      setTimeout(() => {
+        calcProgress.style.width = '100%';
+        const result = engine.calculateAllotment();
+        HobbyAuth.saveQuizResult(result);
+        HobbyApp.launchConfetti();
+
+        setTimeout(() => {
+          window.location.href = 'result.html';
+        }, 500);
+      }, 1800);
+    }
+
+    // Initial render
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCurrentQuestion();
+    });
+  </script>
+</body>
+</html>
+quiz code
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Allotted Hobby & Communities - HobbyHive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Sticky Nav -->
+  <nav class="sticky top-0 z-40 glass-panel border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center text-white shadow-md">✨</div>
+          <span class="font-display font-extrabold text-xl text-slate-900">Hobby<span class="text-indigo-600">Hive</span></span>
+        </a>
+
+        <div class="hidden md:flex items-center space-x-2">
+          <a href="quiz.html" class="text-xs font-bold text-slate-600 hover:text-indigo-600 px-3 py-1.5 rounded-xl hover:bg-slate-100 transition-colors">Retake Quiz 🔄</a>
+          <a href="communities.html" class="text-xs font-bold text-slate-600 hover:text-indigo-600 px-3 py-1.5 rounded-xl hover:bg-slate-100 transition-colors">All Communities 🌐</a>
+          <a href="community-feed.html" class="text-xs font-bold text-slate-600 hover:text-indigo-600 px-3 py-1.5 rounded-xl hover:bg-slate-100 transition-colors">Discussion Board 💬</a>
+        </div>
+
+        <div id="nav-user-area" class="flex items-center space-x-2">
+          <!-- Handled by auth.js -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- RESULT MAIN CONTENT -->
+  <main class="flex-1 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full">
+    
+    <!-- Hero Banner with Archetype & Celebration -->
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs sm:text-sm font-bold mb-4 shadow-sm pulse-badge">
+        <span>🎉 Allotment Complete</span>
+        <span>•</span>
+        <span id="res-archetype-name">Archetype Detected</span>
+      </div>
+
+      <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+        Meet Your True Passion: <br>
+        <span id="res-hobby-title" class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">Loading your allotted hobby...</span>
+      </h1>
+
+      <p id="res-archetype-desc" class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+        Analyzing quiz insights to tailor your journey...
+      </p>
+
+      <!-- Action Toolbar -->
+      <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <button id="btn-save-profile" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-indigo-200 flex items-center space-x-2 transition-all">
+          <span>💾 Save to My Profile</span>
+        </button>
+        <button id="btn-share-result" class="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs sm:text-sm border border-slate-200 shadow-sm flex items-center space-x-2 transition-all">
+          <span>🔗 Share Allotment</span>
+        </button>
+        <a href="quiz.html" class="px-4 py-2.5 rounded-xl text-slate-500 hover:text-indigo-600 text-xs sm:text-sm font-semibold transition-colors">
+          Retake Quiz 🔄
+        </a>
+      </div>
+    </div>
+
+    <!-- PRIMARY ALLOTTED HOBBY CARD -->
+    <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-indigo-200/90 shadow-2xl relative overflow-hidden mb-12" id="primary-card">
+      <div class="flex flex-col lg:flex-row gap-8 items-start">
+        
+        <!-- Left Column: Big Emoji & Visual Match Gauge -->
+        <div class="w-full lg:w-1/3 flex flex-col items-center text-center p-6 rounded-2xl bg-gradient-to-b from-indigo-50/60 to-purple-50/40 border border-indigo-100">
+          <div id="res-hobby-emoji" class="text-7xl sm:text-8xl p-4 rounded-3xl bg-white shadow-lg border border-slate-100 mb-4 transform hover:scale-105 transition-transform">
+            ✨
+          </div>
+
+          <!-- Compatibility Ring/Pill -->
+          <div class="flex items-center space-x-2 px-4 py-2 rounded-2xl bg-white shadow-sm border border-indigo-200 mb-4">
+            <span class="text-xs uppercase font-extrabold text-slate-600 tracking-wider">Match Score:</span>
+            <span id="res-match-percentage" class="text-xl font-black text-indigo-600">96%</span>
+          </div>
+
+          <h3 id="res-card-name" class="font-display font-extrabold text-2xl text-slate-900 mb-1">...</h3>
+          <span id="res-category-pill" class="text-xs font-bold px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 mb-3">Creative Arts</span>
+          <p id="res-tagline" class="text-xs sm:text-sm text-slate-600 italic">...</p>
+
+          <!-- Quick Stats Pills -->
+          <div class="w-full grid grid-cols-2 gap-2 mt-6 text-left">
+            <div class="p-2.5 rounded-xl bg-white border border-slate-200/70">
+              <span class="text-[10px] uppercase font-bold text-slate-600 block">Est. Budget</span>
+              <span id="res-stat-budget" class="text-xs font-bold text-slate-800">₹0 - ₹1,500</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white border border-slate-200/70">
+              <span class="text-[10px] uppercase font-bold text-slate-600 block">Time Needed</span>
+              <span id="res-stat-time" class="text-xs font-bold text-slate-800">2-3 hrs / wk</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white border border-slate-200/70 col-span-2">
+              <span class="text-[10px] uppercase font-bold text-slate-600 block">Difficulty Curve</span>
+              <span id="res-stat-diff" class="text-xs font-bold text-emerald-600">Beginner Friendly</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Rationale & Starter Steps -->
+        <div class="w-full lg:w-2/3 flex flex-col justify-between space-y-6">
+          
+          <!-- Personalized Rationale -->
+          <div class="p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80">
+            <div class="flex items-center space-x-2 mb-2">
+              <span class="text-base">💡</span>
+              <h4 class="font-bold text-amber-900 text-sm">Why This Hobby Was Allotted to You:</h4>
+            </div>
+            <p id="res-justification" class="text-xs sm:text-sm text-amber-950 leading-relaxed font-medium">
+              ...
+            </p>
+          </div>
+
+          <!-- Description -->
+          <div>
+            <h4 class="font-display font-extrabold text-lg text-slate-900 mb-2">About Your New Craft</h4>
+            <p id="res-description" class="text-slate-600 text-sm leading-relaxed">
+              ...
+            </p>
+          </div>
+
+          <!-- Starter Gear Kit -->
+          <div>
+            <h4 class="font-display font-extrabold text-sm uppercase tracking-wider text-slate-900 mb-2 flex items-center space-x-2">
+              <span>🎒</span>
+              <span>Day-1 Starter Kit (No Fluff)</span>
+            </h4>
+            <ul id="res-starter-kit" class="space-y-1.5 text-xs sm:text-sm text-slate-600">
+              <!-- Rendered dynamically -->
+            </ul>
+          </div>
+
+          <!-- 3-Step Milestone Roadmap -->
+          <div>
+            <h4 class="font-display font-extrabold text-sm uppercase tracking-wider text-slate-900 mb-3 flex items-center space-x-2">
+              <span>🗺️</span>
+              <span>Your First 3 Milestones</span>
+            </h4>
+            <div id="res-roadmap-steps" class="space-y-2">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- VERIFIED COMMUNITIES & ENGAGEMENT HUB -->
+    <section class="mb-16">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-4 border-b border-slate-200">
+        <div>
+          <span class="text-xs font-extrabold text-indigo-600 uppercase tracking-wider">Engagement & Social Hub</span>
+          <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
+            Communities For <span id="res-comm-hobby-name" class="text-indigo-600">Your Hobby</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">Join the conversation, ask questions, and share your first creation with over 10M+ collective members.</p>
+        </div>
+        <div class="mt-4 sm:mt-0 flex items-center space-x-2">
+          <a href="community-feed.html" class="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-md transition-all">
+            <span>💬 Post on HobbyHive Board</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Communities Tabs / Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="communities-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- RUNNER UP ALTERNATIVES -->
+    <section class="mb-12">
+      <div class="mb-6">
+        <span class="text-xs font-extrabold text-purple-600 uppercase tracking-wider">Secondary Matches</span>
+        <h2 class="font-display text-2xl font-extrabold text-slate-900 mt-1">Great Alternatives That Scored High</h2>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Based on your answer patterns, these hobbies also share strong synergy with your profile.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6" id="runner-ups-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/communities-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Confetti & Sound
+      HobbyApp.launchConfetti();
+      HobbyApp.playSound('success');
+
+      // Get quiz result
+      let result = HobbyAuth.getLatestQuizResult();
+
+      // If no result exists yet, create default demo result (Photography)
+      if (!result) {
+        result = {
+          completedAt: new Date().toISOString(),
+          primaryHobby: HOBBIES_CATALOG['photo'],
+          matchPercentage: 96,
+          archetype: {
+            name: "The Visual Storyteller",
+            desc: "You have an innate sensitivity to geometry, light, framing, and observing candid human emotions.",
+            icon: "📷"
+          },
+          justification: "We allotted Street & Mobile Photography because your affinity for visual storytelling, observation in open outdoor/urban spaces, and desire for zero startup cost aligns perfectly with this art form.",
+          runnerUps: [
+            { hobby: HOBBIES_CATALOG['digitalart'], percentage: 89 },
+            { hobby: HOBBIES_CATALOG['gardening'], percentage: 83 },
+            { hobby: HOBBIES_CATALOG['coffee'], percentage: 78 }
+          ]
+        };
+      }
+
+      const h = result.primaryHobby;
+      const archetype = result.archetype;
+
+      // Update Banner & Headers
+      document.getElementById('res-archetype-name').textContent = archetype.name || "Explorer";
+      document.getElementById('res-archetype-desc').textContent = archetype.desc || "Ready to dive into a rewarding passion.";
+      document.getElementById('res-hobby-title').textContent = h.name;
+      document.getElementById('res-comm-hobby-name').textContent = h.name;
+
+      // Update Primary Card
+      document.getElementById('res-hobby-emoji').textContent = h.emoji;
+      document.getElementById('res-match-percentage').textContent = `${result.matchPercentage}%`;
+      document.getElementById('res-card-name').textContent = h.name;
+      document.getElementById('res-category-pill').textContent = h.category;
+      document.getElementById('res-tagline').textContent = `"${h.tagline}"`;
+      document.getElementById('res-stat-budget').textContent = h.budget;
+      document.getElementById('res-stat-time').textContent = h.timeCommitment;
+      document.getElementById('res-stat-diff').textContent = h.difficulty;
+      document.getElementById('res-justification').textContent = result.justification;
+      document.getElementById('res-description').textContent = h.description;
+
+      // Starter Kit List
+      const kitList = document.getElementById('res-starter-kit');
+      kitList.innerHTML = (h.starterKit || []).map(item => `
+        <li class="flex items-center space-x-2 text-slate-700">
+          <span class="text-emerald-500 font-bold">✓</span>
+          <span>${item}</span>
+        </li>
+      `).join('');
+
+      // Roadmap Steps
+      const stepsDiv = document.getElementById('res-roadmap-steps');
+      stepsDiv.innerHTML = (h.starterRoadmap || []).map((step, idx) => `
+        <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-50 border border-slate-200/80">
+          <span class="px-2 py-0.5 rounded-lg bg-indigo-100 text-indigo-700 font-bold text-xs shrink-0">${step.step}</span>
+          <p class="text-xs text-slate-700 leading-snug">${step.task}</p>
+        </div>
+      `).join('');
+
+      // Render Verified Communities
+      renderCommunities(h);
+
+      // Render Runner-Ups
+      renderRunnerUps(result.runnerUps || []);
+
+      // Save to Profile Button
+      document.getElementById('btn-save-profile').addEventListener('click', () => {
+        const user = HobbyAuth.getCurrentUser();
+        if (!user) {
+          HobbyApp.toast('Please log in or continue as guest to save to profile.', 'info');
+          setTimeout(() => { window.location.href = 'login.html'; }, 1000);
+          return;
+        }
+
+        user.allottedHobby = h.id;
+        HobbyAuth.updateUserInStorage(user);
+        HobbyApp.playSound('success');
+        HobbyApp.toast(`Saved ${h.name} as your active hobby!`, 'success');
+      });
+
+      // Share Button
+      document.getElementById('btn-share-result').addEventListener('click', () => {
+        const text = `I just took the Hobby Discovery quiz and got allotted ${h.name} (${result.matchPercentage}% match) as "${archetype.name}" on HobbyHive! Check it out!`;
+        HobbyApp.copyText(text, "Allotment summary copied! Ready to share on WhatsApp or Twitter.");
+      });
+    });
+
+    // Render Communities Cards
+    function renderCommunities(h) {
+      const commGrid = document.getElementById('communities-grid');
+      const comms = h.communities || {};
+      let cardsHtml = '';
+
+      // 1. Reddit Subreddits
+      (comms.reddit || []).forEach(r => {
+        const isSaved = HobbyAuth.isCommunityBookmarked(r.name);
+        cardsHtml += `
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between border-orange-200/50 hover:border-orange-400">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-full text-xs font-extrabold bg-orange-100 text-orange-700 flex items-center space-x-1">
+                  <span>🔴</span>
+                  <span>Reddit Hub</span>
+                </span>
+                <span class="text-xs font-bold text-slate-600">${r.members}</span>
+              </div>
+              <h4 class="font-bold text-base text-slate-950 mb-1">${r.name}</h4>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">${r.desc}</p>
+            </div>
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+              <button onclick="toggleBookmark('${r.name}', '${r.url}', '${h.id}', this)" class="text-xs font-semibold ${isSaved ? 'text-amber-500' : 'text-slate-600 hover:text-amber-500'}">
+                ${isSaved ? '★ Saved' : '☆ Bookmark'}
+              </button>
+              <a href="${r.url}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-orange-50 hover:bg-orange-600 hover:text-white text-orange-700 font-bold text-xs transition-colors">
+                Join Subreddit ↗
+              </a>
+            </div>
+          </div>
+        `;
+      });
+
+      // 2. Discord Lounge
+      (comms.discord || []).forEach(d => {
+        const isSaved = HobbyAuth.isCommunityBookmarked(d.name);
+        cardsHtml += `
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between border-indigo-200/50 hover:border-indigo-400">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-full text-xs font-extrabold bg-indigo-100 text-indigo-700 flex items-center space-x-1">
+                  <span>🎧</span>
+                  <span>Discord Voice & Chat</span>
+                </span>
+                <span class="text-xs font-bold text-slate-600">${d.members}</span>
+              </div>
+              <h4 class="font-bold text-base text-slate-950 mb-1">${d.name}</h4>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">${d.desc}</p>
+            </div>
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+              <button onclick="toggleBookmark('${d.name}', '${d.url}', '${h.id}', this)" class="text-xs font-semibold ${isSaved ? 'text-amber-500' : 'text-slate-600 hover:text-amber-500'}">
+                ${isSaved ? '★ Saved' : '☆ Bookmark'}
+              </button>
+              <a href="${d.url}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-600 hover:text-white text-indigo-700 font-bold text-xs transition-colors">
+                Join Discord ↗
+              </a>
+            </div>
+          </div>
+        `;
+      });
+
+      // 3. Official Web Platforms / Forums
+      (comms.platforms || []).forEach(p => {
+        cardsHtml += `
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between border-purple-200/50 hover:border-purple-400">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-full text-xs font-extrabold bg-purple-100 text-purple-700 flex items-center space-x-1">
+                  <span>🌐</span>
+                  <span>Dedicated Platform</span>
+                </span>
+                <span class="text-xs font-bold text-emerald-600">Free Access</span>
+              </div>
+              <h4 class="font-bold text-base text-slate-950 mb-1">${p.name}</h4>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">${p.desc}</p>
+            </div>
+            <div class="flex items-center justify-end pt-3 border-t border-slate-100">
+              <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-purple-50 hover:bg-purple-600 hover:text-white text-purple-700 font-bold text-xs transition-colors">
+                Explore Platform ↗
+              </a>
+            </div>
+          </div>
+        `;
+      });
+
+      // 4. YouTube Creators
+      (comms.youtube || []).forEach(y => {
+        cardsHtml += `
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between border-rose-200/50 hover:border-rose-400">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-full text-xs font-extrabold bg-rose-100 text-rose-700 flex items-center space-x-1">
+                  <span>▶️</span>
+                  <span>Video Mentor</span>
+                </span>
+                <span class="text-xs font-bold text-slate-600">YouTube</span>
+              </div>
+              <h4 class="font-bold text-base text-slate-950 mb-1">${y.name}</h4>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">${y.desc}</p>
+            </div>
+            <div class="flex items-center justify-end pt-3 border-t border-slate-100">
+              <a href="${y.url}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-600 hover:text-white text-rose-700 font-bold text-xs transition-colors">
+                Watch Tutorials ↗
+              </a>
+            </div>
+          </div>
+        `;
+      });
+
+      // 5. Local Meetups
+      (comms.meetups || []).forEach(m => {
+        cardsHtml += `
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between border-emerald-200/50 hover:border-emerald-400">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-700 flex items-center space-x-1">
+                  <span>📍</span>
+                  <span>IRL Local Meetups</span>
+                </span>
+                <span class="text-xs font-bold text-emerald-700">Near You</span>
+              </div>
+              <h4 class="font-bold text-base text-slate-950 mb-1">${m.name}</h4>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4">${m.desc}</p>
+            </div>
+            <div class="flex items-center justify-end pt-3 border-t border-slate-100">
+              <a href="${m.url}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold text-xs transition-colors">
+                Find Local Groups ↗
+              </a>
+            </div>
+          </div>
+        `;
+      });
+
+      commGrid.innerHTML = cardsHtml;
+    }
+
+    // Bookmark Helper
+    window.toggleBookmark = function(name, url, hobbyId, btnEl) {
+      const res = HobbyAuth.toggleBookmarkCommunity({ name, url, hobbyId });
+      if (res.success) {
+        HobbyApp.playSound('click');
+        if (res.isBookmarked) {
+          btnEl.className = "text-xs font-semibold text-amber-500";
+          btnEl.textContent = "★ Saved";
+          HobbyApp.toast(`Bookmarked "${name}"!`, 'success');
+        } else {
+          btnEl.className = "text-xs font-semibold text-slate-400 hover:text-amber-500";
+          btnEl.textContent = "☆ Bookmark";
+          HobbyApp.toast(`Removed "${name}" from bookmarks`, 'info');
+        }
+      } else {
+        HobbyApp.toast(res.message, 'info');
+      }
+    };
+
+    // Render Runner Ups
+    function renderRunnerUps(runners) {
+      const grid = document.getElementById('runner-ups-grid');
+      if (!runners || runners.length === 0) {
+        grid.innerHTML = '<p class="text-sm text-slate-500">No other high matches recorded.</p>';
+        return;
+      }
+
+      grid.innerHTML = runners.map(r => {
+        const item = r.hobby;
+        return `
+          <div class="glass-card p-5 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-3xl">${item.emoji}</span>
+                <span class="text-xs font-extrabold px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+                  ${r.percentage}% Match
+                </span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-lg">${item.name}</h4>
+              <p class="text-xs text-purple-600 font-semibold mb-2">${item.archetype}</p>
+              <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-4">${item.tagline}</p>
+            </div>
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-xs text-slate-600">${item.category}</span>
+              <a href="communities.html?hobby=${item.id}" class="text-xs font-bold text-indigo-600 hover:underline">
+                Explore Hub →
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+  </script>
+</body>
+</html>
+ result code
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Feed – HobbyHive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 glass-panel border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center text-white shadow-md">
+            ✨
+          </div>
+          <span class="font-display font-extrabold text-xl text-slate-900">Hobby<span class="text-indigo-600">Hive</span></span>
+        </a>
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="quiz.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Quiz</a>
+          <a href="result.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Result</a>
+          <a href="communities.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">All Communities</a>
+        </div>
+        <div id="nav-user-area" class="flex items-center space-x-3"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="mb-8">
+      <h1 class="font-display text-3xl font-extrabold text-slate-900 mb-2">Community Feed</h1>
+      <p class="text-slate-600">Share your progress, ask questions, and connect with fellow hobbyists.</p>
+    </section>
+
+    <!-- New Post Form -->
+    <section class="bg-white glass-card p-6 rounded-2xl mb-8 border border-slate-200/60">
+      <h2 class="font-medium text-lg text-slate-800 mb-4">Create a New Post</h2>
+      <form id="new-post-form" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Title</label>
+          <input type="text" id="post-title" class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Content</label>
+          <textarea id="post-content" rows="3" class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Related Hobby (optional)</label>
+          <select id="post-hobby" class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+            <option value="">--None (General)--</option>
+          </select>
+        </div>
+        <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition">Post</button>
+      </form>
+    </section>
+
+    <!-- Feed List -->
+    <section id="feed-container" class="space-y-6"></section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200/80 py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between text-slate-600 text-sm">
+      <span>© 2026 HobbyHive • All rights reserved</span>
+      <div class="flex space-x-4">
+        <a href="index.html" class="hover:text-indigo-600">Home</a>
+        <a href="login.html" class="hover:text-indigo-600">Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/communities-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/feed.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Populate hobby selector
+    const hobbySelect = document.getElementById('post-hobby');
+    Object.values(HOBBIES_CATALOG).forEach(h => {
+      const opt = document.createElement('option');
+      opt.value = h.id;
+      opt.textContent = h.name;
+      hobbySelect.appendChild(opt);
+    });
+
+    // Render posts
+    function renderFeed() {
+      const container = document.getElementById('feed-container');
+      const posts = HobbyFeed.getPosts();
+      container.innerHTML = posts.map(p => `
+        <div class="glass-card p-5 rounded-2xl border border-slate-200/60">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl">${p.authorAvatar}</span>
+            <div>
+              <p class="font-medium text-slate-800">${p.authorName}</p>
+              <p class="text-xs text-slate-500">${p.timestamp}</p>
+            </div>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-1">${p.title}</h3>
+          <p class="text-sm text-slate-700 mb-3">${p.content}</p>
+          <div class="flex items-center space-x-4 text-sm">
+            <button class="like-btn" data-id="${p.id}">👍 ${p.likes}</button>
+            <a href="${p.redditLink}" target="_blank" class="text-orange-600">Reddit</a>
+            <a href="${p.discordLink}" target="_blank" class="text-indigo-600">Discord</a>
+          </div>
+          <div class="mt-4 border-t pt-3">
+            <h4 class="font-medium text-slate-800 mb-2">Comments (${p.comments.length})</h4>
+            <div class="space-y-2">
+              ${p.comments.map(c => `
+                <div class="flex items-start space-x-2">
+                  <span class="text-xl">${c.avatar}</span>
+                  <div>
+                    <p class="font-medium text-slate-800">${c.author}</p>
+                    <p class="text-sm text-slate-600">${c.text}</p>
+                  </div>
+                </div>`).join('')}
+            </div>
+            <form class="mt-2 comment-form" data-id="${p.id}">
+              <input type="text" placeholder="Add a comment..." class="w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" required />
+            </form>
+          </div>
+        </div>`).join('');
+    }
+
+    // Like button handler
+    document.addEventListener('click', e => {
+      if (e.target.matches('.like-btn')) {
+        const postId = e.target.dataset.id;
+        const updated = HobbyFeed.toggleLike(postId);
+        if (updated) renderFeed();
+      }
+    });
+
+    // Comment form handler
+    document.addEventListener('submit', e => {
+      if (e.target.matches('.comment-form')) {
+        e.preventDefault();
+        const postId = e.target.dataset.id;
+        const input = e.target.querySelector('input');
+        const text = input.value.trim();
+        if (text) {
+          HobbyFeed.addComment(postId, text);
+          input.value = '';
+          renderFeed();
+        }
+      }
+    });
+
+    // New post submission
+    document.getElementById('new-post-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const title = document.getElementById('post-title').value;
+      const content = document.getElementById('post-content').value;
+      const hobbyId = document.getElementById('post-hobby').value;
+      HobbyFeed.createPost(title, content, hobbyId);
+      e.target.reset();
+      renderFeed();
+      HobbyApp.toast('Post created!');
+    });
+
+    // Initial render
+    renderFeed();
+  </script>
+</body>
+</html>
+ community feed code
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Hobby Communities – HobbyHive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 glass-panel border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center text-white shadow-md">
+            ✨
+          </div>
+          <span class="font-display font-extrabold text-xl text-slate-900">Hobby<span class="text-indigo-600">Hive</span></span>
+        </a>
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="quiz.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Quiz</a>
+          <a href="result.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Result</a>
+          <a href="community-feed.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Feed</a>
+        </div>
+        <div id="nav-user-area" class="flex items-center space-x-3"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="text-center mb-12">
+      <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">Explore Every Hobby Community</h1>
+      <p class="mt-3 text-slate-600 max-w-2xl mx-auto">
+        Browse verified Reddit, Discord, YouTube, Platform and Meetup groups for each hobby. Click any card to view its dedicated hub page.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="all-hobbies-grid">
+      <!-- Rendered via script -->
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200/80 py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between text-slate-600 text-sm">
+      <span>© 2026 HobbyHive • All rights reserved</span>
+      <div class="flex space-x-4">
+        <a href="index.html" class="hover:text-indigo-600">Home</a>
+        <a href="login.html" class="hover:text-indigo-600">Login</a>
+        <a href="profile.html" class="hover:text-indigo-600">Dashboard</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/communities-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('all-hobbies-grid');
+      if (!grid || typeof HOBBIES_CATALOG === 'undefined') return;
+
+      const keys = Object.keys(HOBBIES_CATALOG);
+      grid.innerHTML = keys.map(k => {
+        const h = HOBBIES_CATALOG[k];
+        const subreddit = (h.communities?.reddit?.[0]?.name) || '';
+        const discord = (h.communities?.discord?.[0]?.name) || '';
+        return `
+          <div class="glass-card p-5 rounded-2xl border border-slate-200/60 hover:border-indigo-300 transition-shadow shadow-sm hover:shadow-lg">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-4xl">${h.emoji}</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">${h.category}</span>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 mb-1">${h.name}</h3>
+            <p class="text-xs text-slate-600 mb-3 line-clamp-2">${h.tagline}</p>
+            <div class="flex flex-col space-y-2">
+              <a href="communities.html?hobby=${h.id}" class="inline-flex items-center space-x-1 text-indigo-600 hover:underline text-xs font-medium">
+                <span>View Full Hub</span>
+                <span>→</span>
+              </a>
+              ${subreddit ? `<a href="${h.communities.reddit[0].url}" target="_blank" class="text-xs text-orange-600 hover:underline">${subreddit}</a>` : ''}
+              ${discord ? `<a href="${h.communities.discord[0].url}" target="_blank" class="text-xs text-indigo-600 hover:underline">${discord}</a>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    });
+  </script>
+</body>
+</html>
+                <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Hobby Communities – HobbyHive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 glass-panel border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center text-white shadow-md">
+            ✨
+          </div>
+          <span class="font-display font-extrabold text-xl text-slate-900">Hobby<span class="text-indigo-600">Hive</span></span>
+        </a>
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="quiz.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Quiz</a>
+          <a href="result.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Result</a>
+          <a href="community-feed.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Feed</a>
+        </div>
+        <div id="nav-user-area" class="flex items-center space-x-3"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="text-center mb-12">
+      <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">Explore Every Hobby Community</h1>
+      <p class="mt-3 text-slate-600 max-w-2xl mx-auto">
+        Browse verified Reddit, Discord, YouTube, Platform and Meetup groups for each hobby. Click any card to view its dedicated hub page.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="all-hobbies-grid">
+      <!-- Rendered via script -->
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200/80 py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between text-slate-600 text-sm">
+      <span>© 2026 HobbyHive • All rights reserved</span>
+      <div class="flex space-x-4">
+        <a href="index.html" class="hover:text-indigo-600">Home</a>
+        <a href="login.html" class="hover:text-indigo-600">Login</a>
+        <a href="profile.html" class="hover:text-indigo-600">Dashboard</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/communities-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('all-hobbies-grid');
+      if (!grid || typeof HOBBIES_CATALOG === 'undefined') return;
+
+      const keys = Object.keys(HOBBIES_CATALOG);
+      grid.innerHTML = keys.map(k => {
+        const h = HOBBIES_CATALOG[k];
+        const subreddit = (h.communities?.reddit?.[0]?.name) || '';
+        const discord = (h.communities?.discord?.[0]?.name) || '';
+        return `
+          <div class="glass-card p-5 rounded-2xl border border-slate-200/60 hover:border-indigo-300 transition-shadow shadow-sm hover:shadow-lg">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-4xl">${h.emoji}</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">${h.category}</span>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 mb-1">${h.name}</h3>
+            <p class="text-xs text-slate-600 mb-3 line-clamp-2">${h.tagline}</p>
+            <div class="flex flex-col space-y-2">
+              <a href="communities.html?hobby=${h.id}" class="inline-flex items-center space-x-1 text-indigo-600 hover:underline text-xs font-medium">
+                <span>View Full Hub</span>
+                <span>→</span>
+              </a>
+              ${subreddit ? `<a href="${h.communities.reddit[0].url}" target="_blank" class="text-xs text-orange-600 hover:underline">${subreddit}</a>` : ''}
+              ${discord ? `<a href="${h.communities.discord[0].url}" target="_blank" class="text-xs text-indigo-600 hover:underline">${discord}</a>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    });
+  </script>
+</body>
+</html>
+ community html
+                
+                                                           
