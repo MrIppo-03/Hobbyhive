@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Hobby Communities – HobbyHive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 glass-panel border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center text-white shadow-md">
+            ✨
+          </div>
+          <span class="font-display font-extrabold text-xl text-slate-900">Hobby<span class="text-indigo-600">Hive</span></span>
+        </a>
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="quiz.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Quiz</a>
+          <a href="result.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Result</a>
+          <a href="community-feed.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Feed</a>
+        </div>
+        <div id="nav-user-area" class="flex items-center space-x-3"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="text-center mb-12">
+      <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">Explore Every Hobby Community</h1>
+      <p class="mt-3 text-slate-600 max-w-2xl mx-auto">
+        Browse verified Reddit, Discord, YouTube, Platform and Meetup groups for each hobby. Click any card to view its dedicated hub page.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="all-hobbies-grid">
+      <!-- Rendered via script -->
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200/80 py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between text-slate-600 text-sm">
+      <span>© 2026 HobbyHive • All rights reserved</span>
+      <div class="flex space-x-4">
+        <a href="index.html" class="hover:text-indigo-600">Home</a>
+        <a href="login.html" class="hover:text-indigo-600">Login</a>
+        <a href="profile.html" class="hover:text-indigo-600">Dashboard</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/communities-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('all-hobbies-grid');
+      if (!grid || typeof HOBBIES_CATALOG === 'undefined') return;
+
+      const keys = Object.keys(HOBBIES_CATALOG);
+      grid.innerHTML = keys.map(k => {
+        const h = HOBBIES_CATALOG[k];
+        const subreddit = (h.communities?.reddit?.[0]?.name) || '';
+        const discord = (h.communities?.discord?.[0]?.name) || '';
+        return `
+          <div class="glass-card p-5 rounded-2xl border border-slate-200/60 hover:border-indigo-300 transition-shadow shadow-sm hover:shadow-lg">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-4xl">${h.emoji}</span>
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">${h.category}</span>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 mb-1">${h.name}</h3>
+            <p class="text-xs text-slate-600 mb-3 line-clamp-2">${h.tagline}</p>
+            <div class="flex flex-col space-y-2">
+              <a href="communities.html?hobby=${h.id}" class="inline-flex items-center space-x-1 text-indigo-600 hover:underline text-xs font-medium">
+                <span>View Full Hub</span>
+                <span>→</span>
+              </a>
+              ${subreddit ? `<a href="${h.communities.reddit[0].url}" target="_blank" class="text-xs text-orange-600 hover:underline">${subreddit}</a>` : ''}
+              ${discord ? `<a href="${h.communities.discord[0].url}" target="_blank" class="text-xs text-indigo-600 hover:underline">${discord}</a>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    });
+  </script>
+</body>
+</html>

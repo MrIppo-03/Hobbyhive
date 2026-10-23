@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile – HobbyHive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 glass-panel border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center text-white shadow-md">✨</div>
+          <span class="font-display font-extrabold text-xl text-slate-900">Hobby<span class="text-indigo-600">Hive</span></span>
+        </a>
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="quiz.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Quiz</a>
+          <a href="result.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Result</a>
+          <a href="communities.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">All Communities</a>
+        </div>
+        <div id="nav-user-area" class="flex items-center space-x-3"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="mb-8">
+      <p class="text-sm font-bold uppercase tracking-wider text-indigo-600 mb-2">Your HobbyHive dashboard</p>
+      <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2">My Profile</h1>
+      <p class="text-slate-600">Keep your hobby journey, quiz results, and favorite communities in one place.</p>
+    </header>
+    <div id="profile-content" aria-live="polite">
+      <div class="glass-card p-6 rounded-2xl border border-slate-200/60 text-sm text-slate-500">Loading your profile…</div>
+    </div>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200/80 py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between text-slate-600 text-sm">
+      <span>© 2026 HobbyHive • All rights reserved</span>
+      <div class="flex space-x-4">
+        <a href="index.html" class="hover:text-indigo-600">Home</a>
+        <a href="login.html" class="hover:text-indigo-600">Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/communities-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

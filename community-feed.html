@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Feed – HobbyHive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-40 glass-panel border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 to-pink-500 flex items-center justify-center text-white shadow-md">
+            ✨
+          </div>
+          <span class="font-display font-extrabold text-xl text-slate-900">Hobby<span class="text-indigo-600">Hive</span></span>
+        </a>
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="quiz.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Quiz</a>
+          <a href="result.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">Result</a>
+          <a href="communities.html" class="text-sm font-medium text-slate-600 hover:text-indigo-600">All Communities</a>
+        </div>
+        <div id="nav-user-area" class="flex items-center space-x-3"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 py-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="mb-8">
+      <h1 class="font-display text-3xl font-extrabold text-slate-900 mb-2">Community Feed</h1>
+      <p class="text-slate-600">Share your progress, ask questions, and connect with fellow hobbyists.</p>
+    </section>
+
+    <!-- New Post Form -->
+    <section class="bg-white glass-card p-6 rounded-2xl mb-8 border border-slate-200/60">
+      <h2 class="font-medium text-lg text-slate-800 mb-4">Create a New Post</h2>
+      <form id="new-post-form" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Title</label>
+          <input type="text" id="post-title" class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Content</label>
+          <textarea id="post-content" rows="3" class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Related Hobby (optional)</label>
+          <select id="post-hobby" class="mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+            <option value="">--None (General)--</option>
+          </select>
+        </div>
+        <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition">Post</button>
+      </form>
+    </section>
+
+    <!-- Feed List -->
+    <section id="feed-container" class="space-y-6"></section>
+  </main>
+
+  <footer class="bg-white border-t border-slate-200/80 py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between text-slate-600 text-sm">
+      <span>© 2026 HobbyHive • All rights reserved</span>
+      <div class="flex space-x-4">
+        <a href="index.html" class="hover:text-indigo-600">Home</a>
+        <a href="login.html" class="hover:text-indigo-600">Login</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/communities-data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/feed.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Populate hobby selector
+    const hobbySelect = document.getElementById('post-hobby');
+    Object.values(HOBBIES_CATALOG).forEach(h => {
+      const opt = document.createElement('option');
+      opt.value = h.id;
+      opt.textContent = h.name;
+      hobbySelect.appendChild(opt);
+    });
+
+    // Render posts
+    function renderFeed() {
+      const container = document.getElementById('feed-container');
+      const posts = HobbyFeed.getPosts();
+      container.innerHTML = posts.map(p => `
+        <div class="glass-card p-5 rounded-2xl border border-slate-200/60">
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="text-2xl">${p.authorAvatar}</span>
+            <div>
+              <p class="font-medium text-slate-800">${p.authorName}</p>
+              <p class="text-xs text-slate-500">${p.timestamp}</p>
+            </div>
+          </div>
+          <h3 class="font-bold text-lg text-slate-900 mb-1">${p.title}</h3>
+          <p class="text-sm text-slate-700 mb-3">${p.content}</p>
+          <div class="flex items-center space-x-4 text-sm">
+            <button class="like-btn" data-id="${p.id}">👍 ${p.likes}</button>
+            <a href="${p.redditLink}" target="_blank" class="text-orange-600">Reddit</a>
+            <a href="${p.discordLink}" target="_blank" class="text-indigo-600">Discord</a>
+          </div>
+          <div class="mt-4 border-t pt-3">
+            <h4 class="font-medium text-slate-800 mb-2">Comments (${p.comments.length})</h4>
+            <div class="space-y-2">
+              ${p.comments.map(c => `
+                <div class="flex items-start space-x-2">
+                  <span class="text-xl">${c.avatar}</span>
+                  <div>
+                    <p class="font-medium text-slate-800">${c.author}</p>
+                    <p class="text-sm text-slate-600">${c.text}</p>
+                  </div>
+                </div>`).join('')}
+            </div>
+            <form class="mt-2 comment-form" data-id="${p.id}">
+              <input type="text" placeholder="Add a comment..." class="w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" required />
+            </form>
+          </div>
+        </div>`).join('');
+    }
+
+    // Like button handler
+    document.addEventListener('click', e => {
+      if (e.target.matches('.like-btn')) {
+        const postId = e.target.dataset.id;
+        const updated = HobbyFeed.toggleLike(postId);
+        if (updated) renderFeed();
+      }
+    });
+
+    // Comment form handler
+    document.addEventListener('submit', e => {
+      if (e.target.matches('.comment-form')) {
+        e.preventDefault();
+        const postId = e.target.dataset.id;
+        const input = e.target.querySelector('input');
+        const text = input.value.trim();
+        if (text) {
+          HobbyFeed.addComment(postId, text);
+          input.value = '';
+          renderFeed();
+        }
+      }
+    });
+
+    // New post submission
+    document.getElementById('new-post-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const title = document.getElementById('post-title').value;
+      const content = document.getElementById('post-content').value;
+      const hobbyId = document.getElementById('post-hobby').value;
+      HobbyFeed.createPost(title, content, hobbyId);
+      e.target.reset();
+      renderFeed();
+      HobbyApp.toast('Post created!');
+    });
+
+    // Initial render
+    renderFeed();
+  </script>
+</body>
+</html>

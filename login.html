@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Sign Up - HobbyHive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Minimal Nav -->
+  <header class="py-4 px-6 border-b border-slate-200/80 glass-panel">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-md">✨</div>
+        <span class="font-display font-extrabold text-xl text-slate-900">Hobby<span class="text-indigo-600">Hive</span></span>
+      </a>
+      <a href="quiz.html" class="text-sm font-semibold text-slate-600 hover:text-indigo-600">Skip to Quiz →</a>
+    </div>
+  </header>
+
+  <main class="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+    <div class="w-full max-w-md">
+      <!-- Card Container -->
+      <div class="glass-panel p-6 sm:p-8 rounded-3xl shadow-2xl border border-slate-200/90 relative">
+        
+        <!-- Header -->
+        <div class="text-center mb-6">
+          <div class="inline-flex w-14 h-14 rounded-3xl bg-indigo-50 text-indigo-600 items-center justify-center text-2xl mb-3 shadow-inner">
+            👋
+          </div>
+          <h1 id="auth-title" class="font-display text-2xl font-black text-slate-900">Welcome to HobbyHive</h1>
+          <p id="auth-subtitle" class="text-xs sm:text-sm text-slate-500 mt-1">Discover hobbies, track progress, and join passionate tribes.</p>
+        </div>
+
+        <!-- 1-Click Fast Access Buttons -->
+        <div class="space-y-2 mb-6">
+          <button id="btn-demo-login" type="button" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-semibold text-sm shadow-md shadow-indigo-200 flex items-center justify-center space-x-2 transition-all">
+            <span>⚡ One-Click Demo Account (Aarav)</span>
+          </button>
+          <button id="btn-guest-login" type="button" class="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm border border-slate-200 shadow-sm flex items-center justify-center space-x-2 transition-all">
+            <span>🧭 Continue as Guest Explorer</span>
+          </button>
+        </div>
+
+        <div class="relative flex items-center justify-center mb-6">
+          <div class="border-t border-slate-200 w-full"></div>
+          <span class="bg-white px-3 text-xs uppercase tracking-wider font-bold text-slate-600 absolute">or with email</span>
+        </div>
+
+        <!-- Tabs: Login vs Register -->
+        <div class="flex p-1 bg-slate-100 rounded-2xl mb-6">
+          <button id="tab-login" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold text-indigo-700 bg-white shadow-sm transition-all">
+            Log In
+          </button>
+          <button id="tab-register" class="flex-1 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 transition-all">
+            Create Account
+          </button>
+        </div>
+
+        <!-- Error / Info Alert -->
+        <div id="auth-alert" class="hidden mb-4 p-3 rounded-xl text-xs font-semibold"></div>
+
+        <!-- LOGIN FORM -->
+        <form id="form-login" class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Email Address</label>
+            <input type="email" id="login-email" required placeholder="you@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all">
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label class="text-xs font-bold text-slate-700 uppercase tracking-wider">Password</label>
+              <a href="#" onclick="alert('For demo, use demo account or any password!')" class="text-xs text-indigo-600 hover:underline">Forgot?</a>
+            </div>
+            <input type="password" id="login-password" required placeholder="••••••••" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all">
+          </div>
+
+          <button type="submit" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm shadow-md transition-all">
+            Sign In to Dashboard
+          </button>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="form-register" class="space-y-4 hidden">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Your Full Name</label>
+            <input type="text" id="reg-name" required placeholder="e.g. Parth Sharma" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Email Address</label>
+            <input type="email" id="reg-email" required placeholder="parth@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all">
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1 uppercase tracking-wider">Create Password</label>
+            <input type="password" id="reg-password" required placeholder="At least 6 characters" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm transition-all">
+          </div>
+
+          <!-- Avatar Picker -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-2 uppercase tracking-wider">Choose Profile Avatar</label>
+            <div class="flex flex-wrap gap-2" id="avatar-selector">
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border-2 border-indigo-500 bg-indigo-50 flex items-center justify-center" data-avatar="🎨">🎨</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="📷">📷</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="🧗">🧗</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="♟️">♟️</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="🪴">🪴</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="🎧">🎧</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="🍳">🍳</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="💻">💻</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="☕">☕</button>
+              <button type="button" class="avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center" data-avatar="🔭">🔭</button>
+            </div>
+            <input type="hidden" id="reg-avatar" value="🎨">
+          </div>
+
+          <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-bold text-sm shadow-md transition-all">
+            Create Free Account
+          </button>
+        </form>
+
+        <!-- Terms Footer -->
+        <p class="text-center text-[11px] text-slate-600 mt-6">
+          By signing up, you gain instant access to 16+ verified hobby community links and personalized discovery roadmaps.
+        </p>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Tab switching logic
+    const tabLogin = document.getElementById('tab-login');
+    const tabRegister = document.getElementById('tab-register');
+    const formLogin = document.getElementById('form-login');
+    const formRegister = document.getElementById('form-register');
+    const authAlert = document.getElementById('auth-alert');
+    const authTitle = document.getElementById('auth-title');
+
+    function showAlert(msg, isError = true) {
+      authAlert.textContent = msg;
+      authAlert.className = isError 
+        ? 'mb-4 p-3 rounded-xl text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-200'
+        : 'mb-4 p-3 rounded-xl text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200';
+      authAlert.classList.remove('hidden');
+    }
+
+    function hideAlert() {
+      authAlert.classList.add('hidden');
+    }
+
+    function showLoginTab() {
+      tabLogin.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold text-indigo-700 bg-white shadow-sm transition-all";
+      tabRegister.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 transition-all";
+      formLogin.classList.remove('hidden');
+      formRegister.classList.add('hidden');
+      authTitle.textContent = "Welcome Back";
+      hideAlert();
+    }
+
+    function showRegisterTab() {
+      tabRegister.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-bold text-indigo-700 bg-white shadow-sm transition-all";
+      tabLogin.className = "flex-1 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-800 transition-all";
+      formRegister.classList.remove('hidden');
+      formLogin.classList.add('hidden');
+      authTitle.textContent = "Create Your Account";
+      hideAlert();
+    }
+
+    tabLogin.addEventListener('click', showLoginTab);
+    tabRegister.addEventListener('click', showRegisterTab);
+
+    if (window.location.hash === '#signup') {
+      showRegisterTab();
+    }
+
+    // Avatar Selection
+    let selectedAvatar = "🎨";
+    document.querySelectorAll('.avatar-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.avatar-opt').forEach(b => {
+          b.className = "avatar-opt text-xl w-9 h-9 rounded-xl border border-slate-200 hover:border-indigo-300 bg-white flex items-center justify-center";
+        });
+        btn.className = "avatar-opt text-xl w-9 h-9 rounded-xl border-2 border-indigo-500 bg-indigo-50 flex items-center justify-center";
+        selectedAvatar = btn.getAttribute('data-avatar');
+        document.getElementById('reg-avatar').value = selectedAvatar;
+      });
+    });
+
+    // 1-Click Demo Login
+    document.getElementById('btn-demo-login').addEventListener('click', () => {
+      HobbyApp.playSound('click');
+      const res = HobbyAuth.loginDemoUser();
+      if (res.success) {
+        HobbyApp.toast('Logged in as Demo User (Aarav)!', 'success');
+        setTimeout(() => {
+          window.location.href = 'profile.html';
+        }, 600);
+      }
+    });
+
+    // 1-Click Guest Login
+    document.getElementById('btn-guest-login').addEventListener('click', () => {
+      HobbyApp.playSound('click');
+      const res = HobbyAuth.loginAsGuest();
+      if (res.success) {
+        HobbyApp.toast('Welcome, Guest Explorer!', 'info');
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 600);
+      }
+    });
+
+    // Login Form Submit
+    formLogin.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const pass = document.getElementById('login-password').value;
+
+      const res = HobbyAuth.login(email, pass);
+      if (res.success) {
+        HobbyApp.playSound('success');
+        showAlert("Success! Redirecting...", false);
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 700);
+      } else {
+        HobbyApp.playSound('pop');
+        showAlert(res.message, true);
+      }
+    });
+
+    // Register Form Submit
+    formRegister.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const pass = document.getElementById('reg-password').value;
+      const avatar = document.getElementById('reg-avatar').value;
+
+      const res = HobbyAuth.register(name, email, pass, avatar);
+      if (res.success) {
+        HobbyApp.playSound('success');
+        HobbyApp.launchConfetti();
+        showAlert("Account created! Let's discover your hobby...", false);
+        setTimeout(() => {
+          window.location.href = 'quiz.html';
+        }, 1000);
+      } else {
+        HobbyApp.playSound('pop');
+        showAlert(res.message, true);
+      }
+    });
+  </script>
+</body>
+</html>
